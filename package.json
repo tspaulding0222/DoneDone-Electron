@@ -1,0 +1,16 @@
+{
+  "name": "electronbullshit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . MyApp --platform=darwin --arch=x64 --overwrite --icon=done_done.icns"
+  },
+  "author": "Thomas Spaulding",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-packager": "^6.0.2",
+    "electron-prebuilt": "^0.37.5"
+  }
+}
