@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . MyApp --platform=darwin --arch=x64 --overwrite --icon=done_done.icns"
+    "build": "electron-packager . DoneDone --platform=darwin --arch=x64 --overwrite --icon=done_done.icns"
   },
   "author": "Thomas Spaulding",
   "license": "ISC",
