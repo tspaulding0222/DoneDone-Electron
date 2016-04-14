@@ -9,6 +9,8 @@ app.on('ready', function(){
     });
 
     mainWindow.loadURL('file://' + __dirname + '/index.html');
+
+    //mainWindow.webContents.openDevTools();
 });
 
 //Listens for call from Renderer Thread to update the dock badge icon
