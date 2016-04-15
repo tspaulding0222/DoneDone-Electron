@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+    //Hide window at start
+    document.getElementById("DoneDonePage").style.visibility = "hidden";
+
+    document.getElementById("DoneDonePage").addEventListener("unload", function(){
+        document.getElementById("DoneDonePage").style.visibility = "hidden";
+    });
+
     //Wait for the Done Done iFrame to load
     document.getElementById("DoneDonePage").addEventListener("load", function(){
         var root = document.getElementById("DoneDonePage").contentDocument;
@@ -6,7 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
         root.body.style.backgroundColor = "#262626";
 
         //Change the top title to white
-        root.querySelector(".dashboard-header-title a").style.color = "white";
+        var headerTitles = toArray(root.querySelectorAll(".dashboard-header-title a"));
+        headerTitles.forEach(function(item){
+            item.style.color = "white";
+        });
 
         //Change all the black text in sub header to white
         var subhearderItems = toArray(root.querySelectorAll(".dashboard-subheader fieldset button strong"));
@@ -20,9 +30,16 @@ document.addEventListener('DOMContentLoaded', function() {
             item.style.color = "white";
         });
 
-        root.querySelector(".dashboard-header-icons li.selected a").style.color = "white";
+        var dashboardHeaderIcons = toArray(root.querySelectorAll(".dashboard-header-icons li.selected a"));
+        dashboardHeaderIcons.forEach(function(item){
+            item.style.color = "white";
+        });
 
-        root.querySelector(".site-header").style.backgroundColor = "#696969";
+        var siteheaders = toArray(root.querySelectorAll(".site-header"));
+        siteheaders.forEach(function(item){
+            item.style.background = "#696969"
+        });
+
 
         var crumbs = toArray(root.querySelectorAll(".site-breadcrumbs li:last-child, .site-breadcrumbs li:last-child a, .site-breadcrumbs li:last-child i"));
         crumbs.forEach(function(item){
@@ -34,7 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
             item.style.color = "black";
         });
 
-        root.querySelector(".site-icons .dd-settingsoutline").style.fill = "black";
+        var siteIconsFile = toArray(root.querySelectorAll(".site-icons .dd-settingsoutline"));
+        siteIconsFile.forEach(function(item){
+            item.style.fill = "black";
+        });
 
         //.dashboard-issue-subtitle a
         var dashboardSubTitles = toArray(root.querySelectorAll(".dashboard-issue-subtitle a"));
@@ -59,6 +79,45 @@ document.addEventListener('DOMContentLoaded', function() {
         dashboardSubheaderText.forEach(function(item){
             item.style.color = "white";
         });
+
+        //dashboard empty title
+        var dashboardEmptyTitle = toArray(root.querySelectorAll(".dashboard-empty-title"));
+        dashboardEmptyTitle.forEach(function(item){
+            item.style.color = "white";
+        });
+
+        //labels
+        var labels = toArray(root.querySelectorAll("label"));
+        labels.forEach(function(item){
+            item.style.color = "white";
+        });
+
+        //strongs
+        var strongs = toArray(root.querySelectorAll("strong"));
+        strongs.forEach(function(item){
+            item.style.color = "white";
+        });
+
+        //dashboard update time
+        var dashboardUpdateTimes = toArray(root.querySelectorAll(".dashboard-update-time"));
+        dashboardUpdateTimes.forEach(function(item){
+            item.style.color = "white";
+        });
+
+        //dashboard update titles
+        var dashboardUpdateTitles = toArray(root.querySelectorAll(".dashboard-update-title"));
+        dashboardUpdateTitles.forEach(function(item){
+            item.style.color = "white";
+        });
+
+        //user input
+        var userInput = toArray(root.querySelectorAll(".user-input"));
+        userInput.forEach(function(item){
+            item.style.color = "white";
+        });
+
+        //Show the iframe now that all styling has been applied
+        document.getElementById("DoneDonePage").style.visibility = "visible";
     });
 });
 

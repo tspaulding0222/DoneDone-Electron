@@ -9,30 +9,38 @@ document.addEventListener('DOMContentLoaded', function() {
         //The element we want to observe and see if any changes were created
         var target = document.getElementById("DoneDonePage").contentDocument.getElementById("notification-count");
 
-        updateDockBadge(target);
+        if(target != null){
+            updateDockBadge(target);
 
-        //The items we want to observer to see if things changed
-        var config = {
-            attributes: true,
-            childList: true,
-            characterData: true,
-            subtree: true
-        };
+            //The items we want to observer to see if things changed
+            var config = {
+                attributes: true,
+                childList: true,
+                characterData: true,
+                subtree: true
+            };
 
-        //Assign the observer to our DOM element
-        var observer = new MutationObserver(function(mutations){
-            mutations.forEach(function(mutation) {
-                updateDockBadge(target);
+            //Assign the observer to our DOM element
+            var observer = new MutationObserver(function(mutations){
+                mutations.forEach(function(mutation) {
+                    updateDockBadge(target);
+                });
             });
-        });
 
-        //Start the Observer
-        observer.observe(target, config);
+            //Start the Observer
+            observer.observe(target, config);
+        }
     });
 });
 
 function updateDockBadge(target){
-    var count = parseInt(target.innerText);
+    var count;
+    if(target == null){
+        count = 0;
+    }
+    else {
+        count = parseInt(target.innerText);
+    }
 
     //set current number of notifications
     if(count > 0){
